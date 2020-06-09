@@ -13,7 +13,7 @@ module.exports = {
     },
     coveragePathIgnorePatterns: [
         '<rootDir>/node_modules/',
-        '<rootDir>/build/',
+        '<rootDir>/lib/',
         '<rootDir>/scripts/',
         '<rootDir>/coverage/',
         '<rootDir>/support/',
