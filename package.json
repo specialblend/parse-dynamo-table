@@ -1,0 +1,22 @@
+{
+  "name": "@specialblend/parse-dynamo-table",
+  "version": "0.0.0",
+  "description": "parses DynamoDB.scan response into flat JavaScript object",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/specialblend/parse-dynamo-table.git"
+  },
+  "keywords": [
+    "dynamodb"
+  ],
+  "author": "cj@specialblend.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/specialblend/parse-dynamo-table/issues"
+  },
+  "homepage": "https://github.com/specialblend/parse-dynamo-table#readme"
+}
