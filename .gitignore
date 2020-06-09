@@ -1,0 +1,7 @@
+node_modules
+build
+coverage
+logs
+.env
+.idea
+__mocks__/__ignored__

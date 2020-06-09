@@ -1,10 +1,12 @@
 {
   "name": "@specialblend/parse-dynamo-table",
   "version": "0.0.0",
-  "description": "parses DynamoDB.scan response into flat JavaScript object",
+  "description": "TypeScript DynamoDB items table parser",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,20 @@
   "bugs": {
     "url": "https://github.com/specialblend/parse-dynamo-table/issues"
   },
-  "homepage": "https://github.com/specialblend/parse-dynamo-table#readme"
+  "homepage": "https://github.com/specialblend/parse-dynamo-table#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@specialblend/eslint-config": "^0.5.4",
+    "@types/ramda": "^0.27.6",
+    "aws-sdk": "^2.693.0",
+    "jest": "^26.0.1",
+    "jest-extended": "^0.11.5",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "ramda": "^0.27.0"
+  }
 }
