@@ -1,5 +1,5 @@
-import { AttributeMap, AttributeValue, ItemList } from 'aws-sdk/clients/dynamodb';
-import { always, equals, head, identity, keys, map, mapObjIndexed, mergeAll, values } from 'ramda';
+import { AttributeMap, AttributeValue } from 'aws-sdk/clients/dynamodb';
+import { always, equals, head, identity, keys, map, mapObjIndexed, values } from 'ramda';
 
 type AttributeKeyName = 'N' | 'BOOL' | 'S' | 'SS' | 'NS' | 'L' | 'NULL' | 'B' | 'BS' | 'M'
 
@@ -41,10 +41,10 @@ function parseKey(data: AttributeValue): any {
     return parser(value);
 }
 
-function parseItem(item: AttributeMap): Record<string, any> {
+export function parseDynamoRecord(item: AttributeMap): Record<string, any> {
     return mapObjIndexed<AttributeValue, any, any>(parseKey, item);
 }
 
-export default function parseDynamoTable(data: ItemList): Record<string, any> {
-    return mergeAll(map(parseItem, data));
+export default function parseDynamoRecords(items: AttributeMap[]): Record<string, any>[] {
+    return map(parseDynamoRecord, items);
 }
