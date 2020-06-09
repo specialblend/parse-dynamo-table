@@ -7,8 +7,8 @@
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "outDir": "./build",
-    "declaration": false,
+    "outDir": "./lib",
+    "declaration": true,
     "resolveJsonModule": true
   },
   "include": [
