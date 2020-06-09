@@ -34,7 +34,9 @@ const types = {
 function parseKey(data: AttributeValue): any {
     const key = parseKeyName(data);
     if (key === 'L') {
-        return data.L?.map(parseKey);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        return data.L.map(parseKey);
     }
     const parser = types[key];
     const value = parseValue(data);
