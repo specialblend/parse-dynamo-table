@@ -4,10 +4,13 @@
   "description": "TypeScript DynamoDB items table parser",
   "main": "index.js",
   "scripts": {
-    "check": "npm run coverage && npm run lint",
-    "coverage": "jest --coverage",
-    "test": "jest",
-    "lint": "eslint ."
+    "build": "tsc",
+    "coverage": "jest --coverage .",
+    "check": "npm test && npm run coverage && npm run lint",
+    "lint": "eslint .",
+    "pretest": "npm run build",
+    "prepublishOnly": "npm run build",
+    "test": "jest ."
   },
   "repository": {
     "type": "git",
