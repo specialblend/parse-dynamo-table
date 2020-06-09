@@ -4,13 +4,11 @@ import { always, equals, head, identity, keys, map, mapObjIndexed, mergeAll, val
 type AttributeKeyName = 'N' | 'BOOL' | 'S' | 'SS' | 'NS' | 'L' | 'NULL' | 'B' | 'BS' | 'M'
 
 const parseKeyName = (data: AttributeValue): AttributeKeyName => {
-    // return head(keys(data));
     const [k] = keys(data);
     return k;
 };
 
 const parseValue = (data: AttributeValue): any => head(values<AttributeValue, AttributeKeyName>(data));
-
 const parseNumber = (x: any): number => Number(x);
 const parseBoolean = equals('true');
 const parseString = (x: any): string => String(x);
