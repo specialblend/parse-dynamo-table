@@ -1,10 +1,6 @@
 {
   "name": "@specialblend/parse-dynamo-table",
-  "version": "0.1.0",
-  "description": "TypeScript DynamoDB items table parser",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "DynamoDB table parser for TypeScript/JavaScript",
   "main": "lib/parseDynamoRecords.js",
   "types": "lib/parseDynamoRecords.d.ts",
