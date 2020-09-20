@@ -76,10 +76,10 @@ function parseKey(data: AttributeValue): any {
 export function parseDynamoRecord<TRecord extends Record<keyof TItem, any>, TItem extends AttributeMap>(item: TItem): TRecord {
     const entries: [string, AttributeValue][] = Object.entries<AttributeValue>(item);
     const parsedEntries = entries.map(
-        function parseEntry([key, value]: [keyof TItem, AttributeValue], index:number): [keyof TItem, any] {
+        function parseEntry([key, value]: [keyof TItem, AttributeValue], index: number): [keyof TItem, any] {
             return [key, parseKey(value)];
         }
-    )
+    );
     return <TRecord>Object.fromEntries(parsedEntries);
 }
 
