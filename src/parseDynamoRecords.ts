@@ -9,11 +9,9 @@ import {
     StringSetAttributeValue
 } from 'aws-sdk/clients/dynamodb';
 
-type AttributeKeyName = 'N' | 'BOOL' | 'S' | 'SS' | 'NS' | 'L' | 'NULL' | 'B' | 'BS' | 'M'
-
-const parseKeyName = (data: AttributeValue): AttributeKeyName => {
+const parseKeyName = (data: AttributeValue): keyof AttributeValue => {
     const [k] = Object.keys(data);
-    return <AttributeKeyName>k;
+    return <keyof AttributeValue>k;
 };
 
 function parseNumber(data: AttributeValue): number {
