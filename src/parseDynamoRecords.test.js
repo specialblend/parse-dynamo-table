@@ -1,6 +1,4 @@
-import btoa from 'btoa';
-
-import parseDynamoRecords, { parseDynamoRecord } from './index';
+import parseDynamoRecords, { parseDynamoRecord } from './parseDynamoRecords';
 
 const $number = {
     N: '1234',
@@ -41,7 +39,7 @@ const $binary = {
 };
 
 const $binaryString = {
-    BS: btoa('test.binary.string.value'),
+    BS: Buffer.from('test.binary.string.value').toString('base64'),
 };
 
 const $map = {
