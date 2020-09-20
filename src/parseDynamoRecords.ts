@@ -81,7 +81,7 @@ export function parseDynamoRecord<TRecord extends Record<keyof TItem, any>, TIte
     return <TRecord>Object.fromEntries(parsedEntries);
 }
 
-export default function parseDynamoRecords<TRecord extends Record<keyof TItem, any>, TItem extends AttributeMap>(items: TItem[]): TRecord[] {
+export default function parseDynamoRecords<TRecord>(items: AttributeMap[]): TRecord[] {
     return items.map(function mapDynamoRecord(record) {
         return parseDynamoRecord(record);
     });
