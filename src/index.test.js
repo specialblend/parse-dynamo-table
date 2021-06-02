@@ -1,4 +1,4 @@
-import parseDynamoRecords, { parseDynamoRecord } from './parseDynamoRecords';
+import { parseDynamoRecord, parseDynamoRecords } from './index';
 
 const $number = {
     N: '1234',
@@ -25,9 +25,7 @@ const $numberList = {
 };
 
 const $list = {
-    L: [
-        $number, $booleanTrue, $booleanFalse, $string,
-    ],
+    L: [$number, $booleanTrue, $booleanFalse, $string],
 };
 
 const $null = {
