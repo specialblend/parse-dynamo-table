@@ -6,7 +6,7 @@ interface ExampleProduct {
     price: number;
 }
 
-async function example() {
+async function exampleParseRecords() {
     const dynamo = new DynamoDB();
     const query = {
         TableName: 'example-products',
@@ -14,7 +14,22 @@ async function example() {
     const response = await dynamo.scan(query).promise();
     const { ScannedCount, Items } = response;
     console.log(`scanned ${ScannedCount} products`);
-    const products = parseDynamoTable<ExampleProduct>(Items);
+    if (Items) {
+        const products = parseDynamoTable<ExampleProduct>(Items);
+        products.map((product: ExampleProduct, index: number) => {
+            const { name, price } = product;
+            console.log('ExampleProduct', index, name, price);
+        });
+    }
+}
+
+async function exampleParseTable() {
+    const dynamo = new DynamoDB();
+    const query = {
+        TableName: 'example-products',
+    };
+    const response = await dynamo.scan(query).promise();
+    const products = parseDynamoTable<ExampleProduct>(response);
     products.map((product: ExampleProduct, index: number) => {
         const { name, price } = product;
         console.log('ExampleProduct', index, name, price);
