@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Read .nvmrc
+      id: node_version
+      run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+
+    # Setup .npmrc file to publish to GitHub Packages
+    - uses: actions/setup-node@v2.1.4
+      with:
+        registry-url: 'https://npm.pkg.github.com'
+        node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
+
+    - run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    # - name: Bump npm version (patch)
+    #   id: bump_npm_version
+    #   run: |
+    #     git config user.name github-actions
+    #     git config user.email github-actions@github.com
+    #     npm version patch
+    #     git push
+
+    # Publish to GitHub Packages
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
