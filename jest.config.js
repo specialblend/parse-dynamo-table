@@ -17,6 +17,7 @@ module.exports = {
         '<rootDir>/index.js',
         '<rootDir>/jest.config.js',
         '<rootDir>/server.local.js',
+        '<rootDir>/example.ts',
     ],
     globalSetup: './__mocks__/environment.js',
     setupFilesAfterEnv: ['./__mocks__/setup.js'],
