@@ -1,8 +1,5 @@
 module.exports = {
-    collectCoverageFrom: [
-        '**/*.js',
-        '**/*.ts',
-    ],
+    collectCoverageFrom: ['**/*.js', '**/*.ts'],
     coverageThreshold: {
         global: {
             branches: 100,

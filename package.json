@@ -11,7 +11,7 @@
     "build": "tsc",
     "coverage": "jest --coverage .",
     "check": "npm test && npm run coverage && npm run lint",
-    "lint": "eslint .",
+    "lint": "eslint --quiet .",
     "prepublishOnly": "npm run build",
     "test": "jest ."
   },
